@@ -3,8 +3,8 @@ export default function taskBlock(trueOrFalse) {
   const task2 = true;
 
   if (trueOrFalse) {
-    // استخدم قيمة المتغيرات حسب الحاجة أو أزلها إذا لم تكن ضرورية
-    return [true, false]; // على سبيل المثال، إرجاع القيم الجديدة مباشرة
+    const task = true; // eslint-disable-line no-unused-vars
+    const task2 = false; // eslint-disable-line no-unused-vars
   }
 
   return [task, task2];
