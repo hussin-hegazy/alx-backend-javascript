@@ -1,10 +1,9 @@
 export default function appendToEachArrayValue(array, appendString) {
-  // إنشاء نسخة من المصفوفة
-  const newArray = [...array];
-
-  for (let i = 0; i < newArray.length; i += 1) {
-    newArray[i] = appendString + newArray[i]; // تعديل النسخة
+  for (const value of array) {
+    // نبحث عن فهرس القيمة في المصفوفة
+    const idx = array.indexOf(value);
+    array[idx] = appendString + value;
   }
 
-  return newArray; // إرجاع النسخة المعدلة
+  return array;
 }
