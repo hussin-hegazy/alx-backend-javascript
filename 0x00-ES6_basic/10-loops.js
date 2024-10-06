@@ -1,4 +1,8 @@
 export default function appendToEachArrayValue(array, appendString) {
-  // نستخدم map لإنشاء مصفوفة جديدة
-  return array.map((value) => appendString + value);
+  const arrayEnd = [];
+  for (const idx of array) {
+    arrayEnd.push(`${appendString}${idx}`);
+  }
+
+  return arrayEnd;
 }
