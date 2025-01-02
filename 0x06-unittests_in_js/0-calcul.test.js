@@ -1,36 +1,36 @@
 const assert = require('assert');
-const performCalculation = require('./0-calcul');
+const calculateNumber = require('./0-calcul');
 
-describe('performCalculation', () => {
-  it('whole numbers with decimals', () => {
-    assert.strictEqual(performCalculation('ADD', 1.0, 2.0), 3);
+describe('calculateNumber', () => {
+  it('whole numbers with floating point representation', () => {
+    assert.strictEqual(calculateNumber(1.0, 2.0), 3);
   });
 
-  it('rounding down the fractional part of the second number', () => {
-    assert.strictEqual(performCalculation('ADD', 1.0, 2.4), 3);
+  it('rounding b\'s fractional value down', () => {
+    assert.strictEqual(calculateNumber(1.0, 2.4), 3);
   });
 
-  it('rounding down both numbers with fractional parts', () => {
-    assert.strictEqual(performCalculation('ADD', 1.4, 2.4), 3);
+  it('rounding both a and b\'s fractional values down', () => {
+    assert.strictEqual(calculateNumber(1.4, 2.4), 3);
   });
 
-  it('rounding down the first number with a fractional part', () => {
-    assert.strictEqual(performCalculation('ADD', 1.4, 2.0), 3);
+  it('rounding a\'s fractional value down', () => {
+    assert.strictEqual(calculateNumber(1.4, 2.0), 3);
   });
 
-  it('rounding up the second number with a fractional part', () => {
-    assert.strictEqual(performCalculation('ADD', 1.0, 2.5), 4);
+  it('rounding b\'s fractional value up', () => {
+    assert.strictEqual(calculateNumber(1.0, 2.5), 4);
   });
 
-  it('rounding up both numbers with fractional parts', () => {
-    assert.strictEqual(performCalculation('ADD', 2.6, 2.5), 6);
+  it('rounding both a and b\'s fractional values up', () => {
+    assert.strictEqual(calculateNumber(2.6, 2.5), 6);
   });
 
-  it('rounding up the first number with a fractional part', () => {
-    assert.strictEqual(performCalculation('ADD', 2.6, 2.0), 5);
+  it('rounding a\'s fractional value up', () => {
+    assert.strictEqual(calculateNumber(2.6, 2.0), 5);
   });
 
-  it('rounding down both numbers with fractional parts and trailing 9\'s', () => {
-    assert.strictEqual(performCalculation('ADD', 2.499999, 3.499999), 5);
+  it('rounding a and b with fractional values ending in 9 down', () => {
+    assert.strictEqual(calculateNumber(2.499999, 3.499999), 5);
   });
 });
