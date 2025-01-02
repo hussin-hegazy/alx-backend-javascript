@@ -1,20 +1,36 @@
 const assert = require('assert');
-const calculateNumber = require('./0-calcul.js'); // تأكد أن المسار صحيح
+const performCalculation = require('./0-calcul');
 
-describe('calculateNumber', function() {
-  it('should return 4 when a is 1 and b is 3', function() {
-    assert.strictEqual(calculateNumber(1, 3), 4);
+describe('performCalculation', () => {
+  it('when both numbers are whole', () => {
+    assert.strictEqual(performCalculation('ADD', 1.0, 2.0), 3);
   });
 
-  it('should return 5 when a is 1 and b is 3.7', function() {
-    assert.strictEqual(calculateNumber(1, 3.7), 5);
+  it('rounding down the second number with a fractional part', () => {
+    assert.strictEqual(performCalculation('ADD', 1.0, 2.4), 3);
   });
 
-  it('should return 5 when a is 1.2 and b is 3.7', function() {
-    assert.strictEqual(calculateNumber(1.2, 3.7), 5);
+  it('rounding down both numbers with fractional parts', () => {
+    assert.strictEqual(performCalculation('ADD', 1.4, 2.4), 3);
   });
 
-  it('should return 6 when a is 1.5 and b is 3.7', function() {
-    assert.strictEqual(calculateNumber(1.5, 3.7), 6);
+  it('rounding down the first number with a fractional part', () => {
+    assert.strictEqual(performCalculation('ADD', 1.4, 2.0), 3);
+  });
+
+  it('rounding up the second number with a fractional part', () => {
+    assert.strictEqual(performCalculation('ADD', 1.0, 2.5), 4);
+  });
+
+  it('rounding up both numbers with fractional parts', () => {
+    assert.strictEqual(performCalculation('ADD', 2.6, 2.5), 6);
+  });
+
+  it('rounding up the first number with a fractional part', () => {
+    assert.strictEqual(performCalculation('ADD', 2.6, 2.0), 5);
+  });
+
+  it('rounding down both numbers with fractional parts and trailing 9\'s', () => {
+    assert.strictEqual(performCalculation('ADD', 2.499999, 3.499999), 5);
   });
 });
