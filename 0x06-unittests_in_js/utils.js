@@ -1,16 +1,16 @@
-const MathUtils = {
-  computeOperation(operation, x, y) {
-    if (operation === 'SUM') {
-      return Math.round(x) + Math.round(y);
+const Utils = {
+  calculateNumber(type, a, b) {
+    if (type === 'SUM') {
+      return Math.round(a) + Math.round(b);
     }
-    if (operation === 'SUBTRACT') {
-      return Math.round(x) - Math.round(y);
+    if (type === 'SUBTRACT') {
+      return Math.round(a) - Math.round(b);
     }
-    if (operation === 'DIVIDE') {
-      return Math.round(y) === 0 ? 'Error' : Math.round(x) / Math.round(y);
+    if (type === 'DIVIDE') {
+      return Math.round(b) === 0 ? 'Error' : Math.round(a) / Math.round(b);
     }
     return 0;
   },
 };
 
-module.exports = MathUtils;
+module.exports = Utils;
