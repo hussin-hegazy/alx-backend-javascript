@@ -1,14 +1,14 @@
 import express from 'express';
-import router from './routes';
+import mapRoutes from './routes';
 
 const app = express();
 const PORT = 1245;
 
-app.locals.databaseFile = process.argv[2]; // قاعدة البيانات تمر كمعامل
-app.use(router);
+mapRoutes(app);
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server listening on PORT ${PORT}`);
 });
 
 export default app;
+module.exports = app;
